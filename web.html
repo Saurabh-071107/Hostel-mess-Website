@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HostelHub</title>
+  <link rel="stylesheet" href="design.css">
+</head>
+<body>
+  
+  <div id="loginPage" class="login-container">
+    <h1>🏡 HostelHub Login</h1>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Enter Username" required>
+      <input type="password" id="password" placeholder="Enter Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p id="loginError"></p>
+  </div>
+
+ 
+  <div id="mainContent" class="hidden">
+    <header>
+      <h1>🏡 Vidhyasagar Hostel</h1>
+      <nav>
+        <button class="tablink" onclick="openTab('dashboard')">Dashboard</button>
+        <button class="tablink" onclick="openTab('announcements')">Announcements</button>
+        <button class="tablink" onclick="openTab('menu')">Meal Menu</button>
+        <button class="tablink" onclick="openTab('complaints')">Complaints</button>
+        <button class="tablink" onclick="openTab('feedback')">Feedback</button>
+        <button id="darkModeToggle">🌙</button>
+        <button id="logoutBtn" class="logout">Logout</button>
+      </nav>
+    </header>
+
+   
+    <section id="dashboard" class="tabcontent active">
+      <h2>Dashboard</h2>
+      <div class="cards">
+        <div class="card interactive" onclick="openTab('announcements')">
+          <img src="https://cdn2.iconfinder.com/data/icons/mobile-user-interface-flat/64/9-notification-512.png" alt="Announcements">
+          <h3>ANNOUNCEMENTS</h3>
+          <p>See latest hostel updates</p>
+        </div>
+        <div class="card interactive" onclick="openTab('menu')">
+          <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Meal Menu">
+          <h3>Meal Menu</h3>
+          <p>Check today's delicious meals</p>
+        </div>
+        <div class="card interactive" onclick="openTab('complaints')">
+          <img src="https://cdn0.iconfinder.com/data/icons/pokemon-go-vol-2/135/_Time-128.png" alt="Complaints">
+          <h3>Complaints</h3>
+          <p>Report maintenance issues</p>
+        </div>
+        <div class="card interactive" onclick="openTab('feedback')">
+          <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Feedback">
+          <h3>Feedback</h3>
+          <p>Share your hostel experience</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="announcements" class="tabcontent">
+      <h2>ANNOUNCEMENTS</h2>
+      <div id="announcementList">
+        <p>No announcements yet.</p>
+      </div>
+    </section>
+
+    <section id="menu" class="tabcontent">
+      <h2>Meal Menu</h2>
+      <table id="menuTable">
+        <tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr>
+      </table>
+      <h3>Rate Today's Meal</h3>
+      <select id="mealRating">
+        <option value="">Select Rating</option>
+        <option>😑</option><option>😐</option>
+        <option>🙂</option><option>😀</option><option>😁</option>
+      </select>
+      <button onclick="submitMealRating()">Submit</button>
+      <p id="mealMessage"></p>
+    </section>
+
+    <section id="complaints" class="tabcontent">
+      <h2>Complaints / Maintenance</h2>
+      <form id="complaintForm">
+        <label>Category:</label>
+        <select id="complaintCategory">
+          <option>Electrical</option>
+          <option>Plumbing</option>
+          <option>Cleaning</option>
+          <option>Wifi</option>
+          <option>Other</option>
+        </select>
+        <label>Describe Issue:</label>
+        <textarea id="complaintText" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <ul id="complaintList"></ul>
+    </section>
+
+    <section id="feedback" class="tabcontent">
+      <h2>Feedback</h2>
+      <form id="feedbackForm">
+        <label>Rate Hostel Facilities:</label>
+        <select id="feedbackRating">
+          <option>😀 Excellent</option>
+          <option>🙂 Good</option>
+          <option>😐 Average</option>
+          <option>🙁 Poor</option>
+        </select>
+        <label>Comments:</label>
+        <textarea id="feedbackText"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <ul id="feedbackList"></ul>
+    </section>
+
+    <footer>
+      <p>© Designed by Saurabh Singh 25MC3059 and Avani Manohar Utekar</p>
+    </footer>
+  </div>
+
+  <script src="back.js"></script>
+</body>
+</html>
